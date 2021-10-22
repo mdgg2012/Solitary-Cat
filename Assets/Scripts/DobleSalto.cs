@@ -7,7 +7,7 @@ public class DobleSalto : MonoBehaviour
     public Rigidbody rb;
     public float saltoVel;
     private bool enElSuelo = true;
-    public int maxSaltos = 4;
+    public int maxSaltos = 2;
     public int saltoActual = 0;
     void Start()
     {
