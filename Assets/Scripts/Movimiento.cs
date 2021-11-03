@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    public float velocidadMovimiento = 5.0f;
-    public float x, y;
+    public Rigidbody rb;
+    public float rapidezDesplazamiento = 10f;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    
-    void Update()
+
+    void FixedUpdate()
     {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
+        float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento * Time.deltaTime;
+        float movimientoCostados = Input.GetAxis("Horizontal") * rapidezDesplazamiento * Time.deltaTime;
 
+        transform.Translate(movimientoCostados, 0, movimientoAdelanteAtras);
 
-        transform.Translate(0, 0, y * Time.deltaTime * velocidadMovimiento);
-
+        
     }
 }
